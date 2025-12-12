@@ -1,16 +1,17 @@
 {
-  "name": "paguinaweb_proyecto_4",
+  "name": "festival-landing-page",
   "version": "1.0.0",
   "description": "Proyecto con GULP, SASS y HTML",
   "main": "index.js",
   "scripts": {
-    "sass": "sass src/scss:build/css",
-    "scss": "gulp css",
-    "dev": "gulp dev"
+    "build": "gulp build",
+    "dev": "gulp dev",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/daniels36999/PaguinaWeb_Proyecto_4.git"
+    "url": "git+https://github.com/daniels36999/festival-landing-page.git"
   },
   "keywords": [
     "SASS",
@@ -21,12 +22,13 @@
   "author": "Daniel Yautibug",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/daniels36999/PaguinaWeb_Proyecto_4/issues"
+    "url": "https://github.com/daniels36999/festival-landing-page/issues"
   },
-  "homepage": "https://github.com/daniels36999/PaguinaWeb_Proyecto_4#readme",
+  "homepage": "https://github.com/daniels36999/festival-landing-page#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.17",
     "cssnano": "^6.0.3",
+    "gh-pages": "^6.3.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^9.0.0",
     "gulp-avif": "^1.1.1",

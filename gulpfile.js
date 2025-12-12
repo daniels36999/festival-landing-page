@@ -4,7 +4,7 @@
 
 
 //SRC=IDENTIFICA  DEST=ALMACENA
-const{src, dest, watch, parallel} = require("gulp");           //PROPIEDADES DE GULP
+const { src, dest, watch, parallel, series } = require("gulp");       //PROPIEDADES DE GULP
 const sass = require('gulp-sass')(require('sass'));  //SASS
 const plumber = require('gulp-plumber');             //AUTOMATIZAR
 
@@ -113,4 +113,19 @@ exports.convertirAvif = convertirAvif;
 //EJECUTA PARALELAMENTE 
 //exports.dev = parallel(comprimirImagen, convertirWebp, dev);
 //exports.comprimirImagen = parallel(comprimirImagen, convertirWebp, convertirAvif);
+
+// TASK BUILD (PRODUCCIÓN)
+function build(callback) {
+    return series(
+        css,
+        runJava,
+        parallel(
+            comprimirImagen,
+            convertirWebp,
+            convertirAvif
+        )
+    )(callback);
+}
+
+exports.build = build;
 
